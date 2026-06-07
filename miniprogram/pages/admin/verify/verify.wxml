@@ -1,0 +1,90 @@
+<!-- 帅帅亲子乐园 - 核销验证页面 -->
+<view class="page">
+
+  <!-- 扫码入口 -->
+  <view class="scan-section">
+    <view class="scan-btn" bindtap="scanCode">
+      <text class="scan-icon">📷</text>
+      <text class="scan-text">扫码核销</text>
+    </view>
+  </view>
+
+  <!-- 手动输入 -->
+  <view class="manual-section">
+    <view class="section-header">
+      <text class="section-title">手动输入券码</text>
+    </view>
+    <view class="input-card">
+      <view class="platform-tabs">
+        <view class="tab {{platform === 'douyin' ? 'active' : ''}}" bindtap="selectPlatform" data-platform="douyin">
+          <text>🎵 抖音</text>
+        </view>
+        <view class="tab {{platform === 'dianping' ? 'active' : ''}}" bindtap="selectPlatform" data-platform="dianping">
+          <text>⭐ 大众点评</text>
+        </view>
+       <view class="tab {{platform === 'meituan' ? 'active' : ''}}" bindtap="selectPlatform" data-platform="meituan">
+         <text>🛵 美团</text>
+        </view>
+      </view>
+      <view class="code-input-wrapper">
+        <input class="code-input" type="text" placeholder="请输入{{platformName}}券码" value="{{voucherCode}}" bindinput="onCodeInput" maxlength="20" />
+        <view class="clear-btn" bindtap="clearCode" wx:if="{{voucherCode}}">
+          <text>✕</text>
+        </view>
+      </view>
+      <view class="btn btn-primary btn-block" bindtap="verifyCode">验证券码</view>
+    </view>
+  </view>
+
+  <!-- 今日核销统计 -->
+  <view class="stats-section">
+    <view class="section-header">
+      <text class="section-title">今日核销统计</text>
+    </view>
+    <view class="stats-grid">
+      <view class="stats-item">
+        <text class="stats-value">{{todayStats.douyin}}</text>
+        <text class="stats-label">抖音</text>
+      </view>
+      <view class="stats-item">
+        <text class="stats-value">{{todayStats.dianping}}</text>
+        <text class="stats-label">大众点评</text>
+      </view>
+      <view class="stats-item">
+        <text class="stats-value">{{todayStats.meituan}}</text>
+        <text class="stats-label">美团</text>
+      </view>
+      <view class="stats-item total">
+        <text class="stats-value">{{todayStats.total}}</text>
+        <text class="stats-label">合计</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 核销记录 -->
+  <view class="records-section">
+    <view class="section-header">
+      <text class="section-title">今日核销记录</text>
+    </view>
+    <view class="record-list">
+      <view class="record-item" wx:for="{{todayRecords}}" wx:key="id">
+        <view class="record-platform {{item.platform}}">
+          <text wx:if="{{item.platform === 'douyin'}}">抖音</text>
+          <text wx:elif="{{item.platform === 'dianping'}}">点评</text>
+          <text wx:else>美团</text>
+        </view>
+        <view class="record-info">
+          <text class="record-code">{{item.code}}</text>
+          <text class="record-time">{{item.time}}</text>
+        </view>
+        <view class="record-status success">
+          <text>✓ 已核销</text>
+        </view>
+      </view>
+      <view class="empty-record" wx:if="{{todayRecords.length === 0}}">
+        <text>今日暂无核销记录</text>
+      </view>
+    </view>
+  </view>
+
+</view>

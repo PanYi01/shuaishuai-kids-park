@@ -1,0 +1,44 @@
+<!-- 帅帅亲子乐园 - 员工管理弹窗 -->
+<view class="modal-mask" bindtap="closeModal" catchtouchmove="preventTouchMove">
+  <view class="modal-content" catchtap="preventTouchMove">
+    <view class="modal-header">
+      <text class="modal-title">员工管理</text>
+      <view class="close-btn" bindtap="closeModal">✕</view>
+    </view>
+
+    <!-- 添加新员工 -->
+    <view class="add-section">
+      <text class="section-label">添加员工</text>
+      <view class="input-group">
+        <input class="input" type="text" placeholder="输入员工微信号/OpenID" value="{{newEmployee.openid}}" bindinput="onOpenidInput" />
+       <input class="input" type="text" placeholder="输入员工昵称" value="{{newEmployee.name}}" bindinput="onNameInput" />
+      </view>
+      <view class="btn btn-primary btn-sm" bindtap="addEmployee">添加员工</view>
+    </view>
+
+    <view class="divider"></view>
+
+    <!-- 员工列表 -->
+    <view class="list-section">
+      <text class="section-label">员工列表（{{employeeList.length}}人）</text>
+      <scroll-view class="employee-list" scroll-y>
+        <view class="employee-item {{item.isBoss ? 'boss' : ''}}" wx:for="{{employeeList}}" wx:key="openid">
+          <view class="employee-info">
+            <text class="employee-name">{{item.name}}</text>
+            <text class="employee-id">{{item.openid}}</text>
+          </view>
+          <view class="employee-actions">
+            <text class="role-tag {{item.role}}">{{item.role === 'boss' ? '👑老板' : '👨‍💼 员工'}}</text>
+            <view class="delete-btn" bindtap="deleteEmployee" data-openid="{{item.openid}}" wx:if="{{!item.isBoss}}">
+              <text>删除</text>
+            </view>
+          </view>
+        </view>
+     </scroll-view>
+    </view>
+
+    <view class="modal-footer">
+      <view class="btn btn-secondary" bindtap="closeModal">关闭</view>
+    </view>
+  </view>
+</view>

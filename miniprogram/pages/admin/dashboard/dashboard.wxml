@@ -1,0 +1,229 @@
+<!-- 帅帅亲子乐园 - 老板后台 -->
+<view class="page">
+
+  <!-- 顶部导航 -->
+  <view class="tab-nav">
+    <view class="tab-item {{currentTab === 'overview' ? 'active' : ''}}" bindtap="switchTab" data-tab="overview">
+      <text>总览</text>
+    </view>
+    <view class="tab-item {{currentTab === 'price' ? 'active' : ''}}" bindtap="switchTab" data-tab="price">
+      <text>价格管理</text>
+    </view>
+    <view class="tab-item {{currentTab === 'report' ? 'active' : ''}}" bindtap="switchTab" data-tab="report">
+      <text>日报</text>
+    </view>
+    <view class="tab-item {{currentTab === 'employee' ? 'active' : ''}}" bindtap="switchTab" data-tab="employee">
+      <text>员工</text>
+    </view>
+    <view class="tab-item {{currentTab === 'notify' ? 'active' : ''}}" bindtap="switchTab" data-tab="notify">
+      <text>通知<span class="notify-badge" wx:if="{{notifyCount > 0}}">{{notifyCount}}</span></text>
+    </view>
+  </view>
+
+  <!-- 总览Tab -->
+  <view class="tab-content" wx:if="{{currentTab === 'overview'}}">
+    <view class="overview-section">
+      <!-- 核心数据 -->
+      <view class="data-cards">
+        <view class="data-card">
+          <text class="data-value">¥{{todayStats.revenue}}</text>
+          <text class="data-label">今日营收</text>
+        </view>
+        <view class="data-card">
+          <text class="data-value">{{todayStats.visitors}}</text>
+          <text class="data-label">今日客流</text>
+        </view>
+        <view class="data-card">
+          <text class="data-value">{{todayStats.verified}}</text>
+          <text class="data-label">核销数</text>
+        </view>
+        <view class="data-card highlight">
+          <text class="data-value">¥{{monthStats.revenue}}</text>
+          <text class="data-label">本月营收</text>
+        </view>
+      </view>
+
+      <!-- 实时动态 -->
+      <view class="live-section">
+        <view class="section-header">
+          <text class="section-title">实时动态</text>
+          <text class="live-dot"></text>
+        </view>
+        <view class="live-list">
+          <view class="live-item" wx:for="{{liveEvents}}" wx:key="id">
+            <text class="live-icon">{{item.icon}}</text>
+            <view class="live-content">
+              <text class="live-text">{{item.text}}</text>
+              <text class="live-time">{{item.time}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 价格管理Tab -->
+  <view class="tab-content" wx:if="{{currentTab === 'price'}}">
+    <view class="price-section">
+      <view class="price-header">
+        <text class="section-title">票种价格设置</text>
+        <view class="btn btn-sm btn-secondary" bindtap="resetPrice">恢复默认</view>
+      </view>
+      <view class="ticket-list">
+        <view class="ticket-item" wx:for="{{tickets}}" wx:key="id">
+          <view class="ticket-info">
+            <text class="ticket-name">{{item.name}}</text>
+            <text class="ticket-desc">{{item.description}}</text>
+          </view>
+          <view class="ticket-price-edit">
+            <text class="yuan">¥</text>
+            <input class="price-input" type="digit" value="{{item.price}}" bindinput="onPriceInput" data-id="{{item.id}}" />
+          </view>
+        </view>
+      </view>
+      <view class="price-footer">
+        <view class="btn btn-primary btn-block" bindtap="savePrices">保存价格调整</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 日报Tab -->
+  <view class="tab-content" wx:if="{{currentTab === 'report'}}">
+    <view class="report-section">
+      <view class="report-date-selector">
+        <view class="date-btn {{reportDate === todayDate ? 'active' : ''}}" bindtap="selectReportDate" data-date="{{todayDate}}">今日</view>
+        <view class="date-btn {{reportDate === yesterdayDate ? 'active' : ''}}" bindtap="selectReportDate" data-date="{{yesterdayDate}}">昨日</view>
+        <view class="date-btn" bindtap="selectWeek">本周</view>
+      </view>
+
+      <view class="report-summary">
+        <view class="summary-item">
+          <text class="summary-value">{{reportStats.verified}}</text>
+          <text class="summary-label">核销总数</text>
+        </view>
+        <view class="summary-item">
+          <text class="summary-value">{{reportStats.tickets}}</text>
+          <text class="summary-label">售出票数</text>
+        </view>
+        <view class="summary-item">
+          <text class="summary-value">¥{{reportStats.revenue}}</text>
+          <text class="summary-label">营收总额</text>
+        </view>
+      </view>
+
+      <view class="report-list">
+        <view class="report-title">员工日报详情</view>
+        <view class="report-item" wx:for="{{reportList}}" wx:key="id">
+          <view class="report-header">
+            <text class="employee-name">{{item.employeeName}}</text>
+            <text class="shift-tag">{{item.shift}}</text>
+          </view>
+          <view class="report-detail">
+            <view class="detail-row">
+              <text>核销数量</text>
+              <text class="value">{{item.verifiedCount}}</text>
+            </view>
+            <view class="detail-row">
+              <text>售出票数</text>
+              <text class="value">{{item.ticketCount}}</text>
+            </view>
+            <view class="detail-row">
+              <text>营收贡献</text>
+              <text class="value gold">¥{{item.revenue}}</text>
+            </view>
+          </view>
+         <text class="report-time">提交于 {{item.submittedAt}}</text>
+        </view>
+        <view class="empty-report" wx:if="{{reportList.length === 0}}">
+          <text>暂无日报记录</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 员工管理Tab -->
+  <view class="tab-content" wx:if="{{currentTab === 'employee'}}">
+    <view class="employee-section">
+      <view class="section-header">
+        <text class="section-title">员工权限管理</text>
+       <text class="section-desc">添加员工微信号后，该用户可登录员工后台</text>
+      </view>
+
+      <!-- 员工列表 -->
+      <view class="employee-list">
+        <view class="employee-item {{item.isBoss ? 'boss' : ''}}" wx:for="{{employeeList}}" wx:key="openid">
+          <view class="employee-avatar">
+            <text class="avatar-icon">{{item.role === 'boss' ? '👑' : '👨‍💼'}}</text>
+          </view>
+          <view class="employee-info">
+            <text class="employee-name">{{item.name}}</text>
+            <text class="employee-id">{{item.openid}}</text>
+          </view>
+          <view class="employee-role">
+            <text class="role-tag {{item.role}}">{{item.role === 'boss' ? '老板' : '员工'}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 添加员工 -->
+      <view class="add-employee-card">
+        <view class="card-header">
+          <text class="card-title">添加新员工</text>
+        </view>
+        <view class="input-row">
+          <input class="input" type="text" placeholder="输入员工微信号/OpenID" value="{{newEmployeeOpenid}}" bindinput="onNewEmployeeOpenid" />
+        </view>
+        <view class="input-row">
+          <input class="input" type="text" placeholder="输入员工昵称" value="{{newEmployeeName}}" bindinput="onNewEmployeeName" />
+        </view>
+        <view class="btn btn-primary btn-block" bindtap="addNewEmployee">确认添加</view>
+      </view>
+
+      <!-- 提示 -->
+      <view class="tips-section">
+        <text class="tips-title">💡 提示</text>
+        <text class="tips-text">1. 让员工打开小程序，点击「管理入口」→ 微信授权登录\n2. 将自动识别为员工或老板身份\n3. 删除员工权限后，该账号需重新授权</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 通知Tab -->
+  <view class="tab-content" wx:if="{{currentTab === 'notify'}}">
+    <view class="notify-section">
+      <view class="notify-header">
+        <text class="section-title">价格变动与特殊情况通知</text>
+      </view>
+      <view class="notify-list">
+        <view class="notify-item {{item.read ? '' : 'unread'}}" wx:for="{{notifications}}" wx:key="id">
+          <view class="notify-icon {{item.type}}">
+            <text wx:if="{{item.type === 'price'}}">💰</text>
+            <text wx:elif="{{item.type === 'special'}}">⚠️</text>
+            <text wx:else>📢</text>
+          </view>
+          <view class="notify-content">
+            <text class="notify-title">{{item.title}}</text>
+            <text class="notify-desc">{{item.description}}</text>
+            <view class="notify-meta">
+              <text class="notify-from">{{item.from}}</text>
+              <text class="notify-time">{{item.time}}</text>
+            </view>
+          </view>
+          <view class="notify-action" bindtap="handleNotify" data-id="{{item.id}}">
+            <text>{{item.read ? '查看' : '标记已读'}}</text>
+          </view>
+        </view>
+        <view class="empty-notify" wx:if="{{notifications.length === 0}}">
+          <text>暂无新通知</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 退出按钮 -->
+  <view class="logout-section">
+    <view class="btn btn-ghost" bindtap="logout">
+      <text>退出登录</text>
+    </view>
+  </view>
+
+</view>

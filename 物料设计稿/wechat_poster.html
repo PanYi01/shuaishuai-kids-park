@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  @page { size: 1080px 1920px; margin: 0; }
+  @font-face { font-family: 'InstrumentBold'; src: url('/Users/panshuai/Library/Application Support/QClaw/openclaw/config/skills/canvas-design/canvas-fonts/InstrumentSans-Bold.ttf') format('truetype'); }
+  @font-face { font-family: 'CrimsonBold'; src: url('/Users/panshuai/Library/Application Support/QClaw/openclaw/config/skills/canvas-design/canvas-fonts/CrimsonPro-Bold.ttf') format('truetype'); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    width: 1080px; height: 1920px;
+    background: linear-gradient(170deg, #FFF5F8 0%, #FFE8F0 40%, #FFF0F5 80%, #FFFFFF 100%);
+    font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    position: relative; overflow: hidden;
+  }
+  
+  /* Soft blobs */
+  .blob-top {
+    position: absolute; top: -200px; right: -150px;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,182,193,0.25) 0%, transparent 70%);
+  }
+  .blob-bottom {
+    position: absolute; bottom: -200px; left: -150px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,215,0,0.15) 0%, transparent 70%);
+  }
+  
+  .content {
+    position: relative; z-index: 10;
+    display: flex; flex-direction: column;
+    align-items: center;
+    padding: 120px 80px 80px 80px;
+    height: 100%;
+  }
+  
+  /* Top label */
+  .top-label {
+    font-size: 28px; color: #E84D8A; font-weight: 700;
+    letter-spacing: 15px; margin-bottom: 30px;
+    text-align: center;
+    padding: 10px 40px;
+    border: 2px solid rgba(232,77,138,0.3);
+    border-radius: 50px;
+  }
+  
+  .brand-name {
+    font-size: 72px; font-weight: 900; color: #333;
+    letter-spacing: 15px; margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  /* Center circle */
+  .center-circle {
+    width: 450px; height: 450px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,228,225,0.9));
+    border: 3px solid rgba(255,215,0,0.5);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 40px rgba(232,77,138,0.1);
+  }
+  .circle-number {
+    font-size: 180px; font-weight: 900; color: #E84D8A;
+    font-family: 'InstrumentBold', sans-serif;
+    line-height: 1;
+  }
+  .circle-price {
+    font-size: 48px; color: #DAA520; font-weight: 700;
+    margin-top: -10px;
+  }
+  
+  .tagline {
+    font-size: 36px; color: #666; font-weight: 700;
+    text-align: center; margin-bottom: 15px;
+    letter-spacing: 5px;
+  }
+  .sub-tagline {
+    font-size: 28px; color: #999; text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .cta-button {
+    background: linear-gradient(135deg, #E84D8A, #FF69B4);
+    color: white; font-size: 36px; font-weight: 700;
+    padding: 20px 80px; border-radius: 60px;
+    letter-spacing: 5px;
+    box-shadow: 0 8px 30px rgba(232,77,138,0.3);
+    margin-bottom: 30px;
+  }
+  
+  .footer-info {
+    font-size: 26px; color: #888; text-align: center;
+  }
+</style>
+</head>
+<body>
+  <div class="blob-top"></div>
+  <div class="blob-bottom"></div>
+  
+  <div class="content">
+    <div class="top-label">全城最大 · 1100㎡ 室内儿童乐园</div>
+    <div class="brand-name">帅帅亲子乐园</div>
+    
+    <div class="center-circle">
+      <div class="circle-number">498</div>
+      <div class="circle-price">元/年</div>
+    </div>
+    
+    <div class="tagline">单人年卡 · 全年无限次畅玩</div>
+    <div class="sub-tagline">原价698元 → 预售立省200元</div>
+    
+    <div class="cta-button">立即抢购</div>
+    
+    <div class="footer-info">📅 7月5日盛大开业 · 📍 市中心 · 扫码加微信</div>
+  </div>
+</body>
+</html>

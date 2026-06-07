@@ -1,0 +1,382 @@
+/* 帅帅亲子乐园 - 首页样式 */
+
+/* ==================== 开业预售入口 ==================== */
+.promo-entry {
+  margin: var(--spacing-md) var(--spacing-md) 0;
+  background: linear-gradient(135deg, #FFF0E8 0%, #FFE4E8 50%, #F5E6D3 100%);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow-gold);
+  border: 2rpx solid rgba(212, 165, 116, 0.25);
+}
+
+.promo-entry-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.promo-entry-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(212, 165, 116, 0.08);
+}
+
+.c1 {
+  width: 200rpx; height: 200rpx;
+  top: -60rpx; right: -40rpx;
+}
+
+.c2 {
+  width: 120rpx; height: 120rpx;
+  bottom: -30rpx; right: 60rpx;
+  background: rgba(255, 182, 193, 0.12);
+}
+
+.promo-entry-content {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 28rpx;
+  position: relative;
+  z-index: 1;
+}
+
+.promo-entry-icon {
+  font-size: 48rpx;
+  margin-right: 20rpx;
+}
+
+.promo-entry-text {
+  flex: 1;
+}
+
+.promo-entry-title {
+  display: block;
+  font-size: 30rpx;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 4rpx;
+}
+
+.promo-entry-desc {
+  display: block;
+  font-size: 24rpx;
+  color: var(--gold-accent);
+}
+
+.promo-entry-arrow {
+  font-size: 36rpx;
+  color: var(--gold-accent);
+  font-weight: 600;
+}
+
+/* ==================== Banner轮播 ==================== */
+.banner-section {
+  margin-bottom: var(--spacing-lg);
+}
+
+.banner-swiper {
+  height: 420rpx;
+}
+
+.banner-item {
+  height: 420rpx;
+  padding: var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-content {
+  flex: 1;
+  z-index: 2;
+}
+
+.banner-title {
+  display: block;
+  font-size: 56rpx;
+  font-weight: 700;
+  color: var(--gray-text);
+  margin-bottom: var(--spacing-xs);
+}
+
+.banner-subtitle {
+  display: block;
+  font-size: 28rpx;
+  color: var(--gold-accent);
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: 2rpx;
+}
+
+.banner-desc {
+  display: block;
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+.banner-decoration {
+  position: absolute;
+  right: -50rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.circle {
+  border-radius: 50%;
+  background: rgba(212, 165, 116, 0.1);
+  position: absolute;
+}
+
+.circle-1 {
+  width: 300rpx;
+  height: 300rpx;
+  right: 0;
+  top: -150rpx;
+}
+
+.circle-2 {
+  width: 200rpx;
+  height: 200rpx;
+  right: 100rpx;
+  top: 50rpx;
+  background: rgba(255, 182, 193, 0.15);
+}
+
+.circle-3 {
+  width: 150rpx;
+  height: 150rpx;
+  right: 50rpx;
+  top: -50rpx;
+  background: rgba(212, 165, 116, 0.08);
+}
+
+/* ==================== 快速入口 ==================== */
+.quick-nav {
+  display: flex;
+  justify-content: space-around;
+  padding: var(--spacing-md) var(--spacing-sm);
+  margin-top: -60rpx;
+  position: relative;
+  z-index: 10;
+}
+
+.quick-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 160rpx;
+}
+
+.quick-nav-icon {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-sm);
+  box-shadow: var(--shadow-soft);
+}
+
+.iconfont {
+  font-size: 44rpx;
+  color: var(--white-pure);
+}
+
+.icon-ticket::before { content: '🎫'; }
+.icon-activity::before { content: '🎨'; }
+.icon-member::before { content: '👑'; }
+.icon-guide::before { content: '📖'; }
+
+.quick-nav-text {
+  font-size: 24rpx;
+  color: var(--gray-text);
+  font-weight: 500;
+}
+
+/* ==================== 乐园信息 ==================== */
+.park-info {
+  margin-top: var(--spacing-lg);
+}
+
+.park-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.park-logo {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--gold-accent) 0%, #C49458 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--spacing-md);
+}
+
+.logo-text {
+  font-size: 48rpx;
+  font-weight: 700;
+  color: var(--white-pure);
+}
+
+.park-intro {
+  flex: 1;
+}
+
+.park-name {
+  display: block;
+  font-size: 36rpx;
+  font-weight: 600;
+  color: var(--gray-text);
+  margin-bottom: 4rpx;
+}
+
+.park-slogan {
+  display: block;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.park-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.park-detail-item {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+}
+
+.detail-icon {
+  font-size: 28rpx;
+  margin-right: var(--spacing-sm);
+}
+
+.detail-text {
+  font-size: 28rpx;
+  color: #666;
+}
+
+/* ==================== 热门活动 ==================== */
+.section-header {
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.more-btn {
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  color: var(--gold-accent);
+}
+
+.arrow {
+  font-size: 32rpx;
+  margin-left: 4rpx;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-card {
+  margin-bottom: var(--spacing-md);
+}
+
+.activity-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.activity-tag {
+  font-size: 22rpx;
+}
+
+.activity-title {
+  display: block;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--gray-text);
+  margin-bottom: var(--spacing-sm);
+}
+
+.activity-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.activity-time {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.activity-spots {
+  font-size: 24rpx;
+  color: var(--pink-main);
+}
+
+.activity-progress {
+  display: flex;
+  align-items: center;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 8rpx;
+  background: var(--gray-border);
+  border-radius:4rpx;
+  margin-right: var(--spacing-sm);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-accent) 0%, var(--pink-main) 100%);
+  border-radius: 4rpx;
+}
+
+.progress-text {
+  font-size: 22rpx;
+  color: #999;
+  white-space: nowrap;
+}
+
+/* ==================== 页面底部留白 ==================== */
+.page {
+  min-height: 100vh;
+  background: var(--pink-light);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* ==================== 隐藏入口 ==================== */
+.hidden-entry {
+  position: fixed;
+  bottom: 200rpx;
+  right: 0;
+  padding: 16rpx 24rpx;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+  opacity: 0.3;
+  transition: opacity 0.3s;
+}
+
+.hidden-entry:active {
+  opacity: 0.8;
+}
+
+.hidden-text {
+  font-size: 20rpx;
+  color: #ccc;
+}

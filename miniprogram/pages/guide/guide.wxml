@@ -1,0 +1,153 @@
+<!-- 帅帅亲子乐园 - 游玩指南 -->
+<view class="page">
+
+  <!-- 乐园介绍 -->
+  <view class="intro-section">
+    <view class="intro-banner">
+      <view class="banner-bg" style="background: linear-gradient(135deg, #FFE4E8 0%, #F5E6D3 100%);">
+        <view class="banner-circles">
+          <view class="circle circle-1"></view>
+          <view class="circle circle-2"></view>
+        </view>
+        <view class="banner-content">
+          <text class="banner-title">Joyful Geometry</text>
+          <text class="banner-subtitle">快乐几何 · 亲子空间</text>
+        </view>
+      </view>
+    </view>
+    <view class="intro-desc">
+      <text class="desc-text">帅帅亲子乐园是为0-12岁儿童打造的高端室内亲子空间，融合国际先进的儿童发展理念，为孩子创造安全、温暖、富有探索乐趣的成长环境。</text>
+    </view>
+  </view>
+
+  <!-- 乐园地图/分区 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">乐园分区</text>
+    </view>
+    <view class="zone-grid">
+      <view class="zone-item" wx:for="{{zones}}" wx:key="id">
+        <view class="zone-icon" style="background: {{item.color}};">
+          <text>{{item.icon}}</text>
+        </view>
+        <text class="zone-name">{{item.name}}</text>
+        <text class="zone-age">{{item.ageRange}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 游玩须知 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">游玩须知</text>
+    </view>
+    <view class="card card-elevated">
+      <view class="notice-item" wx:for="{{notices}}" wx:key="id">
+        <view class="notice-icon">
+          <text>{{item.icon}}</text>
+        </view>
+        <view class="notice-content">
+          <text class="notice-title">{{item.title}}</text>
+          <text class="notice-desc">{{item.desc}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 开放时间 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">营业时间</text>
+    </view>
+    <view class="card card-gold">
+      <view class="time-header">
+        <text class="time-icon">🕐</text>
+        <text class="time-title">每日开放</text>
+      </view>
+      <view class="time-grid">
+        <view class="time-item">
+          <text class="time-label">周一至周五</text>
+          <text class="time-value">09:00 - 21:00</text>
+        </view>
+        <view class="time-item">
+          <text class="time-label">周六周日</text>
+          <text class="time-value">08:30 - 21:30</text>
+        </view>
+       <view class="time-item">
+          <text class="time-label">节假日</text>
+          <text class="time-value">08:30 - 22:00</text>
+        </view>
+      </view>
+      <view class="divider"></view>
+      <view class="time-tip">
+        <text class="tip-icon">💡</text>
+        <text class="tip-text">高峰时段：10:00-12:00，14:00-17:00，建议错峰游玩体验更佳</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 交通指南 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">交通指南</text>
+    </view>
+    <view class="card card-elevated">
+      <view class="location-item">
+        <text class="location-icon">📍</text>
+        <view class="location-info">
+          <text class="location-title">乐园地址</text>
+          <text class="location-desc">月球1号基地中心商业区XXX路XX号</text>
+        </view>
+        <view class="location-action" bindtap="openMap">
+          <text>导航</text>
+        </view>
+      </view>
+      <view class="divider"></view>
+      <view class="transport-item">
+        <text class="transport-icon">🚌</text>
+        <view class="transport-info">
+          <text class="transport-title">公交线路</text>
+          <text class="transport-desc">乘坐XX路、XX路、XX路公交至"商业中心站"下车，步行约300米</text>
+        </view>
+      </view>
+      <view class="divider"></view>
+      <view class="transport-item">
+        <text class="transport-icon">🚗</text>
+        <view class="transport-info">
+          <text class="transport-title">自驾停车</text>
+          <text class="transport-desc">乐园地下停车场，提供免费停车位200+</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 联系方式 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">联系我们</text>
+    </view>
+    <view class="card card-elevated">
+      <view class="contact-item" bindtap="callService">
+        <text class="contact-icon">📞</text>
+        <view class="contact-info">
+          <text class="contact-title">客服热线</text>
+          <text class="contact-value">400-XXX-XXXX</text>
+        </view>
+        <view class="contact-arrow">›</view>
+      </view>
+      <view class="divider"></view>
+      <view class="contact-item" bindtap="copyWechat">
+        <text class="contact-icon">💬</text>
+        <view class="contact-info">
+          <text class="contact-title">微信公众号</text>
+          <text class="contact-value">帅帅亲子乐园</text>
+        </view>
+        <view class="contact-arrow">›</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部留白 -->
+  <view style="height: 80rpx;"></view>
+
+</view>

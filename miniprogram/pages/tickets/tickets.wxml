@@ -1,0 +1,193 @@
+<!-- 帅帅亲子乐园 - 购票页面 -->
+<view class="page">
+
+  <!-- 抖音/大众点评核销入口 -->
+  <view class="verify-section">
+    <view class="verify-header">
+      <text class="verify-title">🎫 外部平台团购核销</text>
+      <text class="verify-desc">已在抖音/大众点评购买门票？点击此处验证</text>
+    </view>
+    <view class="verify-platforms">
+      <view class="platform-btn douyin" bindtap="openDouyinVerify">
+        <text class="platform-icon">🎵</text>
+        <text class="platform-name">抖音团购</text>
+      </view>
+      <view class="platform-btn dianping" bindtap="openDianpingVerify">
+        <text class="platform-icon">⭐</text>
+        <text class="platform-name">大众点评</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 分割线 -->
+  <view class="section-divider">
+    <view class="divider-line"></view>
+    <text class="divider-text">或者直接购票</text>
+    <view class="divider-line"></view>
+  </view>
+
+  <!-- 票种分类标签 -->
+  <view class="filter-section">
+    <scroll-view class="filter-scroll" scroll-x>
+      <view class="filter-list">
+        <view class="filter-item {{ticketFilter === 'all' ? 'active' : ''}}" bindtap="setTicketFilter" data-filter="all">
+          <text>全部</text>
+        </view>
+        <view class="filter-item {{ticketFilter === 'single' ? 'active' : ''}}" bindtap="setTicketFilter" data-filter="single">
+          <text>单次票</text>
+        </view>
+        <view class="filter-item {{ticketFilter === 'times' ? 'active' : ''}}" bindtap="setTicketFilter" data-filter="times">
+          <text>次卡</text>
+        </view>
+        <view class="filter-item {{ticketFilter === 'annual' ? 'active' : ''}}" bindtap="setTicketFilter" data-filter="annual">
+          <text>年卡/季卡</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 票种选择 -->
+  <view class="section">
+    <view class="ticket-list">
+      <view class="ticket-card {{item.id === selectedTicket.id ? 'ticket-selected' : ''}}" wx:for="{{filteredTickets}}" wx:key="id" bindtap="selectTicket" data-ticket="{{item}}">
+        <view class="ticket-header">
+          <view class="ticket-info">
+            <text class="ticket-name">{{item.name}}</text>
+            <text class="ticket-desc">{{item.description}}</text>
+          </view>
+          <view class="ticket-price">
+            <text class="price-symbol">¥</text>
+            <text class="price-value">{{item.price}}</text>
+          </view>
+        </view>
+        <view class="ticket-footer">
+          <view class="ticket-tags">
+            <text class="tag tag-gold" wx:if="{{item.tag === '核心'}}">⭐核心产品</text>
+            <text class="tag tag-gold" wx:elif="{{item.tag === '推荐'}}">⭐ 推荐</text>
+            <text class="tag tag-pink" wx:elif="{{item.tag === '周末'}}">周末可用</text>
+            <text class="tag tag-pink" wx:elif="{{item.tag === '平日'}}">平日特惠</text>
+          </view>
+          <view class="ticket-select-indicator">
+            <view class="indicator-circle {{item.id === selectedTicket.id ? 'selected' : ''}}">
+              <view class="check-icon" wx:if="{{item.id === selectedTicket.id}}">✓</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 日期选择（仅单次票显示） -->
+  <view class="section" wx:if="{{selectedTicket.type === 'single'}}">
+    <view class="section-header">
+      <text class="section-title">选择日期</text>
+    </view>
+    <view class="date-picker">
+      <view class="date-list">
+        <view class="date-item {{item.isWeekend ? 'weekend' : ''}} {{item.selected ? 'date-selected' : ''}}" wx:for="{{dates}}" wx:key="date" bindtap="selectDate" data-date="{{item}}">
+          <text class="date-week">{{item.weekDay}}</text>
+          <text class="date-num">{{item.day}}</text>
+          <text class="date-month">{{item.month}}月</text>
+          <view class="date-tag" wx:if="{{item.isWeekend}}">周末</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 数量选择 -->
+  <view class="section" wx:if="{{selectedTicket.type === 'single'}}">
+    <view class="section-header">
+      <text class="section-title">选择数量</text>
+    </view>
+    <view class="quantity-picker">
+      <view class="quantity-control">
+        <view class="quantity-btn {{quantity <= 1 ? 'disabled' : ''}}" bindtap="decreaseQuantity">
+          <text class="quantity-icon">−</text>
+        </view>
+        <view class="quantity-display">
+          <text class="quantity-value">{{quantity}}</text>
+          <text class="quantity-unit">{{selectedTicket.name.includes('亲子') || selectedTicket.name.includes('家庭') ? '组' : '张'}}</text>
+        </view>
+        <view class="quantity-btn {{quantity >= 10 ? 'disabled' : ''}}" bindtap="increaseQuantity">
+          <text class="quantity-icon">+</text>
+        </view>
+      </view>
+      <view class="quantity-tips">
+        <text class="tip-text">每组最多10张 · 成人免费陪同</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 次卡说明（仅次卡显示） -->
+  <view class="section" wx:if="{{selectedTicket.type === 'times'}}">
+    <view class="card card-gold">
+      <view class="tip-header">
+        <text class="tip-icon">💡</text>
+        <text class="tip-title">次卡使用说明</text>
+      </view>
+      <view class="tip-list">
+        <text class="tip-item">•有效期内置卡内，不可延期</text>
+        <text class="tip-item">• 可1-2个孩子共用（限10次卡及以上）</text>
+        <text class="tip-item">• 每次入场出示二维码核销</text>
+        <text class="tip-item">• 遗失可补办，需工本费10元</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 年卡说明（仅年卡显示） -->
+  <view class="section" wx:if="{{selectedTicket.type === 'annual'}}">
+    <view class="card card-gold">
+      <view class="tip-header">
+        <text class="tip-icon">👑</text>
+        <text class="tip-title">年卡专属权益</text>
+      </view>
+      <view class="tip-list">
+        <text class="tip-item">• 全年不限次畅玩</text>
+        <text class="tip-item">• 生日派对享折扣优惠</text>
+        <text class="tip-item">• 活动报名优先权</text>
+        <text class="tip-item">• 会员日带朋友免费入园</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 费用明细 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">费用明细</text>
+    </view>
+    <view class="card card-elevated">
+      <view class="fee-item">
+        <text class="fee-label">{{selectedTicket.name}} × {{quantity}}</text>
+        <text class="fee-value">¥{{selectedTicket.price * quantity}}</text>
+      </view>
+      <view class="divider"></view>
+      <view class="fee-item fee-total">
+        <text class="fee-label">应付金额</text>
+        <view class="fee-price">
+          <text class="price-symbol">¥</text>
+          <text class="price-value">{{totalPrice}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部购票按钮 -->
+  <view class="bottom-action">
+    <view class="action-bar">
+      <view class="action-info">
+        <text class="action-label">合计</text>
+        <view class="action-price">
+          <text class="price-symbol">¥</text>
+          <text class="price-value text-xl">{{totalPrice}}</text>
+        </view>
+      </view>
+      <view class="btn btn-primary btn-buy" bindtap="goToOrder">
+        <text>立即购买</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部安全区 -->
+  <view style="height: 180rpx;"></view>
+
+</view>

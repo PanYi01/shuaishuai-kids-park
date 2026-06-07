@@ -1,0 +1,206 @@
+<!-- 帅帅亲子乐园 - 开业预售促销专题页 -->
+<view class="page">
+
+  <!-- ===== Hero：倒计时+核心卖点 ===== -->
+  <view class="hero">
+    <view class="hero-bg-circles">
+      <view class="hc hc1"></view>
+      <view class="hc hc2"></view>
+      <view class="hc hc3"></view>
+    </view>
+    <view class="hero-badge">🎊 开业预售 · 限时特惠</view>
+    <text class="hero-title">帅帅亲子乐园</text>
+    <text class="hero-subtitle">Joyful Geometry · 快乐几何</text>
+    <text class="hero-desc">月球1号基地首家1100㎡高端室内亲子空间\n给孩子一个安全、温暖、富有探索乐趣的成长环境</text>
+    
+    <!-- 倒计时 -->
+    <view class="countdown">
+      <text class="countdown-label">距预售截止</text>
+      <view class="countdown-items">
+        <view class="cd-item"><text class="cd-num">{{countdown.days}}</text><text class="cd-unit">天</text></view>
+        <view class="cd-item"><text class="cd-num">{{countdown.hours}}</text><text class="cd-unit">时</text></view>
+        <view class="cd-item"><text class="cd-num">{{countdown.mins}}</text><text class="cd-unit">分</text></view>
+        <view class="cd-item"><text class="cd-num">{{countdown.secs}}</text><text class="cd-unit">秒</text></view>
+      </view>
+    </view>
+
+    <view class="hero-cta" bindtap="scrollToTickets">🎫 立即抢购早鸟价</view>
+  </view>
+
+  <!-- ===== 市场对比 ===== -->
+  <view class="market-compare">
+    <view class="mc-header">
+      <text class="mc-title">💰 月球1号基地市场 · 单次成本对比</text>
+      <text class="mc-badge">月球1号基地人均可支配收入≈3万/年</text>
+    </view>
+    <view class="mc-rows">
+      <view class="mc-row">
+        <view class="mc-row-left">
+          <text class="mc-row-label">周边竞品门店</text>
+          <text class="mc-row-note">单次购买·市场均价</text>
+        </view>
+        <view class="mc-row-right">
+          <text class="mc-price theirs">15-35元</text>
+          <text class="mc-unit">/次</text>
+        </view>
+      </view>
+      <view class="mc-row mc-ours">
+        <view class="mc-row-left">
+          <text class="mc-row-label">⭐ 帅帅亲子乐园·10次卡</text>
+          <text class="mc-row-note">买10得12·折合单价</text>
+        </view>
+        <view class="mc-row-right">
+          <text class="mc-price ours">24元</text>
+          <text class="mc-unit">/次</text>
+        </view>
+      </view>
+      <view class="mc-row mc-ours">
+        <view class="mc-row-left">
+          <text class="mc-row-label">👑 帅帅亲子乐园·年卡</text>
+          <text class="mc-row-note">全年不限次·折合每天</text>
+        </view>
+        <view class="mc-row-right">
+          <text class="mc-price ours">1.36元</text>
+          <text class="mc-unit">/天</text>
+        </view>
+      </view>
+    </view>
+    <view class="mc-highlight">🎯 月球1号基地年人均可支配收入约3万元 · 我们的次卡24元/次，每个家庭都玩得起</view>
+  </view>
+
+  <!-- ===== 票种三级跳 ===== -->
+  <view class="ticket-section" id="ticketAnchor">
+    <view class="section-label">预售套餐</view>
+    <view class="section-title">入门 → 主力 → 旗舰 · 三级跳</view>
+
+    <!-- 入门卡：199 -->
+    <view class="ticket-card entry" bindtap="selectTicket" data-id="3">
+      <view class="tc-badge">🔥 入门首选</view>
+      <view class="tc-top">
+        <view class="tc-name">6次体验卡（预售）</view>
+        <view class="tc-price-wrap">
+          <text class="tc-price">¥199</text>
+          <text class="tc-pershot">≈33.2元/次</text>
+        </view>
+      </view>
+      <view class="tc-features">
+        <text class="tc-feat">🧸 配套小型玩具礼品</text>
+        <text class="tc-feat">🧦 赠送防滑袜1双</text>
+        <text class="tc-feat">🎯 可参与开业转盘抽奖</text>
+        <text class="tc-feat">📅 有效期6个月</text>
+      </view>
+    </view>
+
+    <!-- 主力卡：288 -->
+    <view class="ticket-card featured" bindtap="selectTicket" data-id="4">
+      <view class="tc-badge">⭐ 主力推荐</view>
+      <view class="tc-top">
+        <view class="tc-name">10次畅玩卡（预售）</view>
+        <view class="tc-price-wrap">
+          <text class="tc-price">¥288</text>
+          <text class="tc-pershot">≈24元/次 · 买10得12</text>
+        </view>
+      </view>
+      <view class="tc-features">
+        <text class="tc-feat">🎁 配套中型玩具礼品</text>
+        <text class="tc-feat">🧦 赠送防滑袜2双</text>
+        <text class="tc-feat">🎯 可参与开业转盘抽奖</text>
+        <text class="tc-feat">👨‍👩‍👧 可1-2个孩子共用</text>
+        <text class="tc-feat">📅 有效期12个月</text>
+      </view>
+    </view>
+
+    <!-- 旗舰卡：498 -->
+    <view class="ticket-card premium" bindtap="selectTicket" data-id="7">
+      <view class="tc-badge">👑 核心产品</view>
+      <view class="tc-top">
+        <view class="tc-name">单人年卡（预售）</view>
+        <view class="tc-price-wrap">
+          <text class="tc-price">¥498</text>
+          <text class="tc-pershot">≈1.36元/天 · 原价698</text>
+        </view>
+      </view>
+      <view class="tc-features">
+        <text class="tc-feat">🎁 配套大盒玩具礼品</text>
+        <text class="tc-feat">🧦 赠送防滑袜2双</text>
+        <text class="tc-feat">🎯 可参与开业转盘抽奖</text>
+        <text class="tc-feat">🎂 生日派对8折</text>
+        <text class="tc-feat">⭐ 活动报名优先权</text>
+        <text class="tc-feat">🔄 全年不限次畅玩</text>
+      </view>
+      <view class="tc-limited">⚠️ 仅限前300张 · 售完恢复568元 · 开业后698元</view>
+    </view>
+  </view>
+
+  <!-- ===== 9.9试玩 ===== -->
+  <view class="trial-cta" bindtap="selectTicket" data-id="0">
+    <view class="trial-left">
+      <text class="trial-tag">🔥 仅限线上</text>
+      <text class="trial-title">9.9元体验券</text>
+      <text class="trial-desc">限量1000张·开业首周可用·每人限1张</text>
+    </view>
+    <view class="trial-right">
+      <text class="trial-price">¥9.9</text>
+      <text class="trial-label">立即抢购</text>
+    </view>
+  </view>
+  <view class="trial-note">
+    💡 地推现场还有<text class="gold">39.9元体验卡（含实物玩具）</text>· 两条线任选·互不冲突
+  </view>
+
+  <!-- ===== 幸运转盘 ===== -->
+  <view class="lucky-wheel">
+    <text class="lw-title">🎡 开业幸运转盘</text>
+    <text class="lw-desc">开业首周·到场消费即抽·100%中奖</text>
+    <view class="lw-prizes">
+      <view class="lw-prize" wx:for="{{wheelPrizes}}" wx:key="name" style="background: {{item.color}};">
+        <text class="lw-prize-name">{{item.name}}</text>
+        <text class="lw-prize-daily">每天{{item.daily}}名</text>
+      </view>
+    </view>
+    <view class="lw-tip">💡 大转盘比抽奖箱视觉效果更好·抖音更出片</view>
+  </view>
+
+  <!-- ===== 防滑袜策略 ===== -->
+  <view class="sock-banner">
+    <view class="sock-icon">🧦</view>
+    <view class="sock-info">
+      <text class="sock-title">免费提供防滑袜</text>
+      <text class="sock-desc">入场免费提供·离场可带走·LOGO印袜=行走广告</text>
+      <text class="sock-reward">写美团/抖音好评 → 额外再送1双！</text>
+    </view>
+  </view>
+
+  <!-- ===== 乐园信息 ===== -->
+  <view class="park-info">
+    <view class="pi-title">📍 乐园信息</view>
+    <view class="pi-grid">
+      <view class="pi-item">
+        <text class="pi-icon">📍</text>
+        <text class="pi-val">月球1号基地中心商业区</text>
+      </view>
+      <view class="pi-item">
+        <text class="pi-icon">📐</text>
+        <text class="pi-val">1100㎡大型室内乐园</text>
+      </view>
+      <view class="pi-item">
+        <text class="pi-icon">👶</text>
+        <text class="pi-val">0-12岁儿童</text>
+      </view>
+      <view class="pi-item">
+        <text class="pi-icon">🕐</text>
+        <text class="pi-val">平日09:00-21:00·周末08:30-21:30</text>
+      </view>
+      <view class="pi-item">
+        <text class="pi-icon">📞</text>
+        <text class="pi-val">400-XXX-XXXX</text>
+      </view>
+      <view class="pi-item">
+        <text class="pi-icon">🚗</text>
+        <text class="pi-val">200+免费停车位</text>
+      </view>
+    </view>
+  </view>
+
+  <view style="height: 120rpx;"></view>
+</view>

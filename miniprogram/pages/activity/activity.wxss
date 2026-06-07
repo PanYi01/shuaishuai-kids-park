@@ -1,0 +1,214 @@
+/* 帅帅亲子乐园 - 活动预约页面样式 */
+
+/* ==================== 筛选栏 ==================== */
+.filter-section {
+  background: var(--white-pure);
+  padding: var(--spacing-md) 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.filter-scroll {
+  white-space: nowrap;
+}
+
+.filter-list {
+  display: flex;
+  padding: 0 var(--spacing-md);
+}
+
+.filter-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 12rpx 28rpx;
+  border-radius: var(--radius-full);
+  background: var(--pink-light);
+  margin-right: var(--spacing-sm);
+  transition: all 0.3s ease;
+}
+
+.filter-item text {
+  font-size: 26rpx;
+  color: #666;
+  white-space: nowrap;
+}
+
+.filter-item.active {
+  background: var(--gold-accent);
+}
+
+.filter-item.active text {
+  color: var(--white-pure);
+}
+
+/* ==================== 活动列表 ==================== */
+.activity-section {
+  padding: var(--spacing-md);
+}
+
+.activity-card {
+  background: var(--white-pure);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  margin-bottom: var(--spacing-md);
+  box-shadow: var(--shadow-soft);
+}
+
+.activity-cover {
+  position: relative;
+  height: 200rpx;
+}
+
+.cover-bg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cover-icon {
+  font-size: 100rpx;
+  opacity: 0.8;
+}
+
+.activity-status {
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8rpx 16rpx;
+  border-radius: var(--radius-full);
+}
+
+.activity-status text {
+  font-size: 22rpx;
+  color: var(--white-pure);
+}
+
+.activity-status.hot {
+  background: var(--pink-main);
+}
+
+.activity-body {
+  padding: var(--spacing-md);
+}
+
+.activity-title {
+  display: block;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--gray-text);
+  margin-bottom: var(--spacing-sm);
+}
+
+.activity-meta {
+  display: flex;
+  margin-bottom: var(--spacing-sm);
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  margin-right: var(--spacing-lg);
+}
+
+.meta-icon {
+  font-size: 24rpx;
+  margin-right: 8rpx;
+}
+
+.meta-text {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.activity-desc {
+  font-size: 26rpx;
+  color: #999;
+  line-height: 1.5;
+  margin-bottom: var(--spacing-md);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.activity-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.activity-progress {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin-right: var(--spacing-md);
+}
+
+.progress-bar {
+  width: 120rpx;
+  height: 8rpx;
+  background: var(--gray-border);
+  border-radius: 4rpx;
+  overflow: hidden;
+  margin-right: var(--spacing-sm);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-accent) 0%, var(--pink-main) 100%);
+  border-radius: 4rpx;
+}
+
+.progress-text {
+  font-size: 22rpx;
+  color: #999;
+  white-space: nowrap;
+}
+
+.activity-action {
+  display: flex;
+}
+
+.action-btn {
+  background: linear-gradient(135deg, var(--gold-accent) 0%, #C49458 100%);
+  color: var(--white-pure);
+  padding: 12rpx 28rpx;
+  border-radius: var(--radius-full);
+  font-size: 26rpx;
+  font-weight: 500;
+}
+
+.action-btn.disabled {
+  background: var(--gray-border);
+  color: #999;
+}
+
+/* ==================== 空状态 ==================== */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xxl);
+}
+
+.empty-icon {
+  font-size: 120rpx;
+  margin-bottom: var(--spacing-md);
+  opacity: 0.5;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #999;
+}
+
+/* ==================== 页面样式 ==================== */
+.page {
+  min-height: 100vh;
+  background: var(--pink-light);
+}

@@ -1,0 +1,232 @@
+/* 帅帅亲子乐园 - 核销验证页面样式 */
+
+.page {
+  min-height: 100vh;
+  background: var(--pink-light);
+  padding-bottom: var(--spacing-xl);
+}
+
+/* 扫码入口 */
+.scan-section {
+  padding: var(--spacing-lg);
+  background: var(--white-pure);
+}
+
+.scan-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 200rpx;
+  background: linear-gradient(135deg, var(--gold-accent) 0%, #C49458 100%);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-medium);
+}
+
+.scan-icon {
+  font-size: 72rpx;
+  margin-bottom: var(--spacing-sm);
+}
+
+.scan-text {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: var(--white-pure);
+}
+
+/* 手动输入 */
+.manual-section {
+  padding: var(--spacing-md);
+}
+
+.input-card {
+  background: var(--white-pure);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.platform-tabs {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.tab {
+  flex: 1;
+  padding: var(--spacing-sm);
+  text-align: center;
+  border-radius: var(--radius-md);
+  background: var(--pink-light);
+  transition: all 0.3s ease;
+}
+
+.tab text {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.tab.active {
+  background: var(--gold-accent);
+}
+
+.tab.active text {
+  color: var(--white-pure);
+}
+
+.code-input-wrapper {
+  display: flex;
+  align-items: center;
+  background: var(--pink-light);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.code-input {
+  flex: 1;
+  font-size: 32rpx;
+  color: var(--gray-text);
+  letter-spacing: 2rpx;
+}
+
+.clear-btn {
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 50%;
+  background: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: var(--spacing-sm);
+}
+
+.clear-btn text {
+  font-size: 24rpx;
+  color: var(--white-pure);
+}
+
+/* 统计 */
+.stats-section {
+  padding: var(--spacing-md);
+}
+
+.stats-grid {
+  display: flex;
+  background: var(--white-pure);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.stats-item {
+  flex: 1;
+  padding: var(--spacing-lg);
+  text-align: center;
+  border-right: 1rpx solid var(--gray-border);
+}
+
+.stats-item:last-child {
+  border-right: none;
+}
+
+.stats-item.total {
+  background: var(--gold-light);
+}
+
+.stats-value {
+  display: block;
+  font-size: 40rpx;
+  font-weight: 700;
+  color: var(--gray-text);
+  margin-bottom: 8rpx;
+}
+
+.stats-item.total .stats-value {
+  color: var(--gold-accent);
+}
+
+.stats-label {
+  display: block;
+  font-size: 22rpx;
+  color: #999;
+}
+
+/* 核销记录 */
+.records-section {
+  padding: var(--spacing-md);
+}
+
+.record-list {
+  background: var(--white-pure);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.record-item {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-md);
+  border-bottom: 1rpx solid var(--gray-border);
+}
+
+.record-item:last-child {
+  border-bottom: none;
+}
+
+.record-platform {
+  width: 80rpx;
+  height: 60rpx;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--spacing-md);
+}
+
+.record-platform text {
+  font-size: 22rpx;
+  color: var(--white-pure);
+}
+
+.record-platform.douyin {
+  background: #1C1C1C;
+}
+
+.record-platform.dianping {
+  background: #FF6633;
+}
+
+.record-platform.meituan {
+  background: #FF7347;
+}
+
+.record-info {
+  flex: 1;
+}
+
+.record-code {
+  display: block;
+  font-size: 28rpx;
+  color: var(--gray-text);
+  margin-bottom: 4rpx;
+}
+
+.record-time {
+  display: block;
+  font-size: 22rpx;
+  color: #999;
+}
+
+.record-status.success text {
+  font-size: 24rpx;
+  color: var(--gold-accent);
+  font-weight: 500;
+}
+
+.empty-record {
+  padding: var(--spacing-xl);
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+}

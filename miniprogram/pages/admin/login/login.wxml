@@ -1,0 +1,38 @@
+<!-- 帅帅亲子乐园 - 员工/老板登录 -->
+<view class="page">
+  <view class="login-container">
+    <!-- Logo区域 -->
+    <view class="logo-section">
+      <view class="logo-circle">
+        <text class="logo-text">爱</text>
+      </view>
+      <text class="brand-name">帅帅亲子乐园</text>
+      <text class="brand-subtitle">管理系统</text>
+    </view>
+
+    <!-- 登录说明 -->
+    <view class="intro-section">
+      <text class="intro-text">员工或管理员请使用微信授权登录</text>
+    </view>
+
+    <!-- 微信授权登录 -->
+    <view class="auth-section">
+      <button class="wechat-btn" open-type="getPhoneNumber" bindgetphonenumber="onGetPhoneNumber">
+        <text class="wechat-icon">📱</text>
+        <text class="wechat-text">微信授权登录</text>
+      </button>
+      <view class="auth-tips">
+        <text class="tip-text">登录即表示同意《帅帅亲子乐园用户协议》</text>
+      </view>
+    </view>
+
+    <!-- 备用说明 -->
+    <view class="backup-section">
+      <text class="backup-title">📋 授权说明</text>
+      <text class="backup-text">1. 员工账号由老板在后台「员工管理」中添加\n2. 首次登录微信授权后自动识别身份\n3. 如提示"未被授权"，请联系老板添加</text>
+      <view class="get-openid-btn" bindtap="getMyOpenid">
+        <text>🔍 获取我的OpenID（供老板添加）</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/promo/promo",
+    "pages/tickets/tickets",
+    "pages/member/member",
+    "pages/activity/activity",
+    "pages/guide/guide",
+    "pages/order/order",
+    "pages/admin/login/login",
+    "pages/admin/dashboard/dashboard",
+    "pages/admin/employee/employee",
+    "pages/admin/verify/verify"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#FFF5F7",
+    "navigationBarTitleText": "帅帅亲子乐园",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#FFFFFF",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "selectedColor": "#D4A574",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tab-home.png",
+        "selectedIconPath": "images/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/tickets/tickets",
+        "text": "购票",
+        "iconPath": "images/tab-ticket.png",
+        "selectedIconPath": "images/tab-ticket-active.png"
+      },
+      {
+        "pagePath": "pages/activity/activity",
+        "text": "活动",
+        "iconPath": "images/tab-activity.png",
+        "selectedIconPath": "images/tab-activity-active.png"
+      },
+      {
+        "pagePath": "pages/member/member",
+        "text": "我的",
+        "iconPath": "images/tab-member.png",
+        "selectedIconPath": "images/tab-member-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

@@ -1,0 +1,320 @@
+/* 帅帅亲子乐园 - 订单确认页面样式 */
+
+/* ==================== 订单类型提示 ==================== */
+.order-type-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+  background: var(--white-pure);
+}
+
+.type-icon {
+  font-size: 32rpx;
+  margin-right: var(--spacing-sm);
+}
+
+.type-text {
+  font-size: 30rpx;
+  color: var(--gray-text);
+  font-weight: 500;
+}
+
+/* ==================== 订单信息 ==================== */
+.order-info {
+  padding: 0 var(--spacing-md);
+}
+
+.info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.info-title {
+  flex: 1;
+}
+
+.title-main {
+  display: block;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--gray-text);
+  margin-bottom: 8rpx;
+}
+
+.title-sub {
+  display: block;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.info-price {
+  color: var(--gold-accent);
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+}
+
+.row-label {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.row-value {
+  font-size: 28rpx;
+  color: var(--gray-text);
+  font-weight: 500;
+}
+
+/* ==================== 优惠抵扣 ==================== */
+.discount-section {
+  padding: 0 var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.discount-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.discount-left {
+  display: flex;
+  align-items: center;
+}
+
+.discount-icon {
+  font-size: 32rpx;
+  margin-right: var(--spacing-sm);
+}
+
+.discount-label {
+  font-size: 28rpx;
+  color: var(--gray-text);
+}
+
+.discount-right {
+  display: flex;
+  align-items: center;
+}
+
+.discount-value {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.discount-value.has-coupon {
+  color: var(--gold-accent);
+  font-weight: 500;
+}
+
+.points-tip {
+  background: var(--gold-light);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  margin-top: var(--spacing-sm);
+}
+
+.points-tip text {
+  font-size: 24rpx;
+  color: var(--gold-accent);
+}
+
+/* ==================== 支付方式 ==================== */
+.payment-section {
+  padding: 0 var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.payment-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) 0;
+}
+
+.payment-left {
+  display: flex;
+  align-items: center;
+}
+
+.payment-icon {
+  font-size: 40rpx;
+  margin-right: var(--spacing-md);
+}
+
+.payment-name {
+  font-size: 30rpx;
+  color: var(--gray-text);
+}
+
+.payment-balance {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: var(--spacing-sm);
+}
+
+.payment-check {
+  display: flex;
+}
+
+.check-circle {
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 50%;
+  border: 2rpx solid var(--gray-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.check-circle.checked {
+  background: var(--gold-accent);
+  border-color: var(--gold-accent);
+}
+
+.check-circle text {
+  color: var(--white-pure);
+  font-size: 24rpx;
+  font-weight: 700;
+}
+
+/* ==================== 订单金额 ==================== */
+.amount-section {
+  padding: 0 var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.amount-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+}
+
+.amount-label {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.amount-value {
+  font-size: 28rpx;
+  color: var(--gray-text);
+}
+
+.amount-value.discount {
+  color: var(--gold-accent);
+}
+
+.amount-total .amount-label {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--gray-text);
+}
+
+.amount-price {
+  color: var(--gold-accent);
+}
+
+/* ==================== 用户须知 ==================== */
+.terms-section {
+  padding: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.terms-item {
+  display: flex;
+  align-items: flex-start;
+}
+
+.terms-check {
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 50%;
+  border: 2rpx solid var(--gray-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--spacing-sm);
+  flex-shrink: 0;
+  margin-top: 4rpx;
+}
+
+.terms-check.checked {
+  background: var(--gold-accent);
+  border-color: var(--gold-accent);
+}
+
+.terms-check text {
+  color: var(--white-pure);
+  font-size: 20rpx;
+  font-weight: 700;
+}
+
+.terms-text {
+  flex: 1;
+  font-size: 24rpx;
+  color: #999;
+  line-height: 1.5;
+}
+
+.terms-text .link {
+  color: var(--gold-accent);
+}
+
+/* ==================== 底部支付按钮 ==================== */
+.bottom-action {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--white-pure);
+  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.05);
+  z-index: 100;
+  padding: var(--spacing-md);
+  padding-bottom: calc(var(--spacing-md) + env(safe-area-inset-bottom));
+}
+
+.action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.action-info {
+  display: flex;
+  align-items: center;
+}
+
+.action-label {
+  font-size: 26rpx;
+  color: #999;
+  margin-right: var(--spacing-sm);
+}
+
+.action-price {
+  color: var(--gold-accent);
+}
+
+.btn-pay {
+  padding: 24rpx 64rpx;
+  font-size: 32rpx;
+}
+
+.btn-pay.disabled {
+  background: var(--gray-border);
+  color: #999;
+}
+
+/* ==================== 页面样式 ==================== */
+.page {
+  min-height: 100vh;
+  background: var(--pink-light);
+  padding-bottom: env(safe-area-inset-bottom);
+}

@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  @page { size: 210mm 297mm; margin: 0; }
+  @font-face { font-family: 'Gloock'; src: url('/Users/panshuai/Library/Application Support/QClaw/openclaw/config/skills/canvas-design/canvas-fonts/Gloock-Regular.ttf') format('truetype'); }
+  @font-face { font-family: 'Instrument'; src: url('/Users/panshuai/Library/Application Support/QClaw/openclaw/config/skills/canvas-design/canvas-fonts/InstrumentSans-Regular.ttf') format('truetype'); }
+  @font-face { font-family: 'InstrumentBold'; src: url('/Users/panshuai/Library/Application Support/QClaw/openclaw/config/skills/canvas-design/canvas-fonts/InstrumentSans-Bold.ttf') format('truetype'); }
+  @font-face { font-family: 'CrimsonBold'; src: url('/Users/panshuai/Library/Application Support/QClaw/openclaw/config/skills/canvas-design/canvas-fonts/CrimsonPro-Bold.ttf') format('truetype'); }
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    width: 210mm; height: 297mm;
+    background: linear-gradient(175deg, #FFF5F8 0%, #FFE8F0 30%, #FFF0F5 60%, #FFFFFF 100%);
+    font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Decorative background circles */
+  .bg-circle-1 {
+    position: absolute; top: -60mm; right: -40mm;
+    width: 160mm; height: 160mm;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,192,203,0.3) 0%, rgba(255,192,203,0.05) 70%, transparent 100%);
+  }
+  .bg-circle-2 {
+    position: absolute; bottom: -30mm; left: -30mm;
+    width: 120mm; height: 120mm;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,215,0,0.12) 0%, rgba(255,215,0,0.02) 70%, transparent 100%);
+  }
+  .bg-circle-3 {
+    position: absolute; top: 80mm; left: -20mm;
+    width: 60mm; height: 60mm;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,182,193,0.2) 0%, transparent 70%);
+  }
+  
+  /* Decorative dots pattern */
+  .dots {
+    position: absolute; top: 15mm; right: 15mm;
+    width: 40mm; height: 40mm;
+    background-image: radial-gradient(circle, rgba(255,105,180,0.15) 1.5px, transparent 1.5px);
+    background-size: 6mm 6mm;
+  }
+  
+  /* Gold accent lines */
+  .gold-line-top {
+    position: absolute; top: 20mm; left: 18mm; right: 18mm;
+    height: 0.8mm; background: linear-gradient(90deg, #DAA520, #FFD700, #DAA520);
+    border-radius: 1mm;
+  }
+  .gold-line-bottom {
+    position: absolute; bottom: 20mm; left: 18mm; right: 18mm;
+    height: 0.5mm; background: linear-gradient(90deg, #DAA520, #FFD700, #DAA520);
+    border-radius: 1mm;
+  }
+  
+  /* Main content area */
+  .content {
+    position: relative; z-index: 10;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    height: 100%; padding: 30mm 18mm 25mm 18mm;
+  }
+  
+  /* Brand name */
+  .brand-name {
+    font-size: 10mm; font-weight: 900; letter-spacing: 3mm;
+    color: #E84D8A; text-align: center;
+    margin-bottom: 4mm;
+    text-shadow: 0 0.5mm 2mm rgba(232,77,138,0.15);
+  }
+  
+  /* Subtitle badge */
+  .badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #E84D8A, #FF69B4);
+    color: white; font-size: 3.2mm; font-weight: 700;
+    padding: 2mm 8mm; border-radius: 20mm;
+    letter-spacing: 2mm; margin-bottom: 9mm;
+    box-shadow: 0 1mm 3mm rgba(232,77,138,0.3);
+  }
+  
+  /* Hero number */
+  .hero-size {
+    font-size: 18mm; font-weight: 900; color: #333;
+    line-height: 1; text-align: center; margin-bottom: 2mm;
+    font-family: 'InstrumentBold', 'PingFang SC', sans-serif;
+  }
+  .hero-size .gold {
+    color: #DAA520;
+    background: linear-gradient(135deg, #DAA520, #FFD700);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  
+  .hero-label {
+    font-size: 3.8mm; color: #666; letter-spacing: 2mm;
+    margin-bottom: 8mm; text-align: center;
+  }
+  
+  /* Price highlight box */
+  .price-box {
+    background: white;
+    border: 0.3mm solid #FFD700;
+    border-radius: 5mm;
+    padding: 6mm 15mm;
+    text-align: center;
+    box-shadow: 0 1mm 4mm rgba(0,0,0,0.06);
+    margin-bottom: 10mm;
+  }
+  .price-label {
+    font-size: 3mm; color: #999; letter-spacing: 1mm; margin-bottom: 2mm;
+  }
+  .price-num {
+    font-size: 14mm; font-weight: 900; color: #E84D8A;
+    font-family: 'InstrumentBold', sans-serif;
+    line-height: 1;
+  }
+  .price-num .yuan {
+    font-size: 5mm; font-weight: 400;
+  }
+  .price-sub {
+    font-size: 2.8mm; color: #999; margin-top: 1mm;
+  }
+  
+  /* Features row */
+  .features {
+    display: flex; gap: 8mm; margin-bottom: 8mm;
+  }
+  .feature {
+    text-align: center; font-size: 2.8mm; color: #666;
+  }
+  .feature .icon {
+    font-size: 6mm; margin-bottom: 1mm; display: block;
+  }
+  
+  /* Bottom info */
+  .bottom-info {
+    text-align: center; font-size: 3mm; color: #888;
+  }
+  .bottom-info .date {
+    font-size: 4.5mm; font-weight: 700; color: #333; margin-bottom: 1mm;
+  }
+  
+  /* Corner QR placeholder */
+  .qr-placeholder {
+    position: absolute; bottom: 28mm; right: 20mm;
+    width: 18mm; height: 18mm;
+    border: 0.3mm dashed #FFB6C1; border-radius: 2mm;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2mm; color: #FFB6C1; text-align: center;
+  }
+</style>
+</head>
+<body>
+  <div class="bg-circle-1"></div>
+  <div class="bg-circle-2"></div>
+  <div class="bg-circle-3"></div>
+  <div class="dots"></div>
+  <div class="gold-line-top"></div>
+  <div class="gold-line-bottom"></div>
+  
+  <div class="content">
+    <div class="brand-name">帅帅亲子乐园</div>
+    <div class="badge">市中心 · 旗舰店</div>
+    
+    <div class="hero-size"><span class="gold">1100</span>㎡</div>
+    <div class="hero-label">全城最大室内儿童乐园</div>
+    
+    <div class="price-box">
+      <div class="price-label">▸ 限时预售 · 早鸟特惠 ◂</div>
+      <div class="price-num">498<span class="yuan">元</span></div>
+      <div class="price-sub">单人年卡 · 全年不限次（原价698元）</div>
+    </div>
+    
+    <div class="features">
+      <div class="feature">
+        <span class="icon">🏰</span>
+        淘气堡<br>攀爬组合
+      </div>
+      <div class="feature">
+        <span class="icon">🫧</span>
+        海洋球池<br>软体区
+      </div>
+      <div class="feature">
+        <span class="icon">🎨</span>
+        亲子互动<br>手工坊
+      </div>
+      <div class="feature">
+        <span class="icon">☕</span>
+        家长休息<br>餐饮配套
+      </div>
+    </div>
+    
+    <div class="bottom-info">
+      <div class="date">📅 7月5日 盛大开业</div>
+      <div>📍 市中心核心区域 · 扫码加微信抢预售名额</div>
+    </div>
+  </div>
+  
+  <div class="qr-placeholder">扫码加微信<br>领9.9元体验券</div>
+</body>
+</html>

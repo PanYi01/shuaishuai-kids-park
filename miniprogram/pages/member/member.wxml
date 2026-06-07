@@ -1,0 +1,135 @@
+<!-- 帅帅亲子乐园 - 会员中心 -->
+<view class="page">
+
+  <!-- 用户信息头部 -->
+  <view class="member-header">
+    <view class="user-info">
+      <view class="user-avatar">
+        <image class="avatar-img" src="{{userInfo.avatar || '/images/default-avatar.png'}}" mode="aspectFill"></image>
+      </view>
+      <view class="user-detail" wx:if="{{isLogin}}">
+        <text class="user-name">{{userInfo.nickname || '游客用户'}}</text>
+        <text class="user-phone">{{userInfo.phone || ''}}</text>
+      </view>
+      <view class="user-detail" wx:else>
+        <text class="user-name">点击登录</text>
+        <text class="user-desc">登录后享受更多会员权益</text>
+      </view>
+    </view>
+    <view class="member-level" wx:if="{{isLogin && memberInfo}}">
+      <view class="level-badge">
+        <text class="level-icon">👑</text>
+        <text class="level-name">{{memberInfo.level || 'VIP'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 会员卡 -->
+  <view class="member-card-section">
+    <view class="member-card {{isLogin && memberInfo ? 'active' : 'inactive'}}" bindtap="{{isLogin ? 'showMemberCard' : 'goLogin'}}">
+      <view class="card-decoration">
+        <view class="deco-circle deco-1"></view>
+        <view class="deco-circle deco-2"></view>
+      </view>
+      <view class="card-content">
+        <view class="card-header">
+          <text class="card-title">{{isLogin && memberInfo ? memberInfo.level + '会员' : '帅帅亲子乐园会员卡'}}</text>
+          <text class="card-brand">AIBaby</text>
+        </view>
+        <view class="card-body" wx:if="{{isLogin && memberInfo}}">
+          <view class="card-info-row">
+            <text class="info-label">卡号</text>
+            <text class="info-value">{{memberInfo.cardNo || '--------'}}</text>
+          </view>
+          <view class="card-info-row">
+            <text class="info-label">余额</text>
+            <text class="info-value gold">¥{{memberInfo.balance || 0}}</text>
+          </view>
+          <view class="card-info-row">
+            <text class="info-label">积分</text>
+            <text class="info-value">{{memberInfo.points || 0}}</text>
+          </view>
+        </view>
+        <view class="card-body" wx:else>
+          <text class="card-desc">开通会员卡，享受专属优惠和积分返还</text>
+        </view>
+        <view class="card-footer" wx:if="{{isLogin && memberInfo}}">
+          <text class="valid-text">有效期至：{{memberInfo.validDate || '长期'}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能菜单 -->
+  <view class="menu-section">
+    <view class="menu-group">
+      <view class="menu-item" bindtap="goToOrders">
+        <view class="menu-icon" style="background: linear-gradient(135deg, #FFB6C1 0%, #FFE4E8 100%);">
+          <text>📋</text>
+        </view>
+        <text class="menu-text">我的订单</text>
+        <view class="menu-arrow">›</view>
+      </view>
+      <view class="menu-item" bindtap="goToCoupons">
+        <view class="menu-icon" style="background: linear-gradient(135deg, #D4A574 0%, #F5E6D3 100%);">
+         <text>🎫</text>
+        </view>
+        <text class="menu-text">优惠券</text>
+        <view class="menu-badge" wx:if="{{couponCount > 0}}">{{couponCount}}</view>
+        <view class="menu-arrow">›</view>
+      </view>
+      <view class="menu-item" bindtap="goToActivities">
+        <view class="menu-icon" style="background: linear-gradient(135deg, #FFE4E8 0%, #F5E6D3 100%);">
+          <text>🎨</text>
+        </view>
+        <text class="menu-text">我的活动</text>
+        <view class="menu-arrow">›</view>
+      </view>
+    </view>
+
+    <view class="menu-group">
+      <view class="menu-item" bindtap="goToFavorites">
+        <view class="menu-icon" style="background: linear-gradient(135deg, #F5E6D3 0%, #FFE4E8 100%);">
+          <text>❤️</text>
+        </view>
+        <text class="menu-text">我的收藏</text>
+        <view class="menu-arrow">›</view>
+      </view>
+      <view class="menu-item" bindtap="goToHistory">
+        <view class="menu-icon" style="background: linear-gradient(135deg, #FFE4E8 0%, #FFB6C1 100%);">
+          <text>🕐</text>
+        </view>
+        <text class="menu-text">游玩记录</text>
+        <view class="menu-arrow">›</view>
+      </view>
+    </view>
+
+    <view class="menu-group">
+      <view class="menu-item" bindtap="goToSettings">
+        <view class="menu-icon" style="background: linear-gradient(135deg, #E8E8E8 0%, #F8F8F8 100%);">
+          <text>⚙️</text>
+        </view>
+        <text class="menu-text">设置</text>
+        <view class="menu-arrow">›</view>
+      </view>
+      <view class="menu-item" bindtap="goToHelp">
+        <view class="menu-icon" style="background: linear-gradient(135deg, #E8E8E8 0%, #F8F8F8 100%);">
+          <text>❓</text>
+        </view>
+        <text class="menu-text">帮助与反馈</text>
+        <view class="menu-arrow">›</view>
+      </view>
+     <view class="menu-item" bindtap="callService">
+        <view class="menu-icon" style="background: linear-gradient(135deg, #E8E8E8 0%, #F8F8F8 100%);">
+          <text>📞</text>
+        </view>
+        <text class="menu-text">联系客服</text>
+        <view class="menu-arrow">›</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部留白 -->
+  <view style="height: 120rpx;"></view>
+
+</view>

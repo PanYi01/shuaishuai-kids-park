@@ -1,0 +1,478 @@
+/* 帅帅亲子乐园 - 购票页面样式 */
+
+/* ==================== 核销入口 ==================== */
+.verify-section {
+  background: var(--white-pure);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  box-shadow: var(--shadow-soft);
+}
+
+.verify-header {
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.verify-title {
+  display: block;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--gray-text);
+  margin-bottom: 8rpx;
+}
+
+.verify-desc {
+  display: block;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.verify-platforms {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.platform-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200rpx;
+  height: 160rpx;
+  border-radius: var(--radius-lg);
+  transition: all 0.3s ease;
+}
+
+.platform-btn:active {
+  transform: scale(0.96);
+}
+
+.platform-btn.douyin {
+  background: linear-gradient(135deg, #1C1C1C 0%, #333333 100%);
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.2);
+}
+
+.platform-btn.dianping {
+  background: linear-gradient(135deg, #FF6633 0%, #FF9966 100%);
+  box-shadow: 0 4rpx 20rpx rgba(255, 102, 51, 0.3);
+}
+
+.platform-icon {
+  font-size: 48rpx;
+  margin-bottom: var(--spacing-sm);
+}
+
+.platform-name {
+  font-size: 28rpx;
+  color: var(--white-pure);
+  font-weight: 500;
+}
+
+/* ==================== 分割线 ==================== */
+.section-divider {
+  display: flex;
+  align-items: center;
+  margin: var(--spacing-md) 0;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1rpx;
+  background: var(--gray-border);
+}
+
+.divider-text {
+  padding: 0 var(--spacing-md);
+  font-size: 24rpx;
+  color: #ccc;
+  white-space: nowrap;
+}
+
+/* ==================== 票种筛选栏 ==================== */
+.filter-section {
+  background: var(--white-pure);
+  padding: var(--spacing-md) 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.filter-scroll {
+  white-space: nowrap;
+}
+
+.filter-list {
+  display: flex;
+  padding: 0 var(--spacing-md);
+}
+
+.filter-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 12rpx 28rpx;
+  border-radius: var(--radius-full);
+  background: var(--pink-light);
+  margin-right: var(--spacing-sm);
+  transition: all 0.3s ease;
+}
+
+.filter-item text {
+  font-size: 26rpx;
+  color: #666;
+  white-space: nowrap;
+}
+
+.filter-item.active {
+  background: var(--gold-accent);
+}
+
+.filter-item.active text {
+  color: var(--white-pure);
+}
+
+/* ==================== 次卡/年卡说明卡片 ==================== */
+.tip-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.tip-icon {
+  font-size: 36rpx;
+  margin-right: var(--spacing-sm);
+}
+
+.tip-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--gray-text);
+}
+
+.tip-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.tip-item {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* ==================== 票种卡片 ==================== */
+.ticket-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.ticket-card {
+  background: var(--white-pure);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  border: 2rpx solid transparent;
+  transition: all 0.3s ease;
+}
+
+.ticket-card.ticket-selected {
+  border-color: var(--gold-accent);
+  box-shadow: var(--shadow-gold);
+}
+
+.ticket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.ticket-info {
+  flex: 1;
+}
+
+.ticket-name {
+  display: block;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--gray-text);
+  margin-bottom: 8rpx;
+}
+
+.ticket-desc {
+  display: block;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.ticket-price {
+  text-align: right;
+}
+
+.price-original {
+  display: block;
+  font-size: 22rpx;
+  color: #ccc;
+  text-decoration: line-through;
+}
+
+.ticket-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--spacing-sm);
+}
+
+.ticket-tags {
+  display: flex;
+}
+
+.ticket-select-indicator {
+  display: flex;
+}
+
+.indicator-circle {
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 50%;
+  border: 2rpx solid var(--gray-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.indicator-circle.selected {
+  background: var(--gold-accent);
+  border-color: var(--gold-accent);
+}
+
+.check-icon {
+  color: var(--white-pure);
+  font-size: 24rpx;
+  font-weight: 700;
+}
+
+/* ==================== 日期选择 ==================== */
+.date-picker {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.date-list {
+  display: flex;
+  padding: var(--spacing-sm) 0;
+}
+
+.date-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+  margin-right: var(--spacing-md);
+  border-radius: var(--radius-lg);
+  background: var(--white-pure);
+  border: 2rpx solid transparent;
+  transition: all 0.3s ease;
+  min-width: 120rpx;
+}
+
+.date-item.weekend {
+  background: var(--pink-light);
+}
+
+.date-item.date-selected {
+  border-color: var(--gold-accent);
+  background: var(--gold-light);
+}
+
+.date-week {
+  font-size: 22rpx;
+  color: #999;
+  margin-bottom: 8rpx;
+}
+
+.date-num {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: var(--gray-text);
+  margin-bottom: 4rpx;
+}
+
+.date-month {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.date-tag {
+  font-size: 20rpx;
+  color: var(--pink-main);
+  background: var(--pink-warm);
+  padding: 4rpx 12rpx;
+  border-radius: var(--radius-full);
+  margin-top: 8rpx;
+}
+
+/* ==================== 数量选择 ==================== */
+.quantity-picker {
+  background: var(--white-pure);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-btn {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  background: var(--pink-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2rpx solid var(--pink-main);
+}
+
+.quantity-btn.disabled {
+  opacity: 0.4;
+}
+
+.quantity-icon {
+  font-size: 36rpx;
+  color: var(--pink-main);
+  font-weight: 600;
+}
+
+.quantity-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 var(--spacing-xl);
+}
+
+.quantity-value {
+  font-size: 56rpx;
+  font-weight: 700;
+  color: var(--gray-text);
+}
+
+.quantity-unit {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.quantity-tips {
+  text-align: center;
+  margin-top: var(--spacing-md);
+}
+
+.tip-text {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* ==================== 费用明细 ==================== */
+.fee-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+}
+
+.fee-label {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.fee-value {
+  font-size: 28rpx;
+  color: var(--gray-text);
+  font-weight: 500;
+}
+
+.fee-original {
+  text-decoration: line-through;
+  color: #ccc;
+}
+
+.fee-total .fee-label {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--gray-text);
+}
+
+.fee-price {
+  color: var(--gold-accent);
+}
+
+.save-tip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold-light);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-full);
+  margin-top: var(--spacing-md);
+}
+
+.save-icon {
+  font-size: 28rpx;
+  margin-right: var(--spacing-xs);
+}
+
+.save-text {
+  font-size: 26rpx;
+  color: var(--gold-accent);
+  font-weight: 500;
+}
+
+/* ==================== 底部购票按钮 ==================== */
+.bottom-action {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--white-pure);
+  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.05);
+  z-index: 100;
+  padding: var(--spacing-md);
+  padding-bottom: calc(var(--spacing-md) + env(safe-area-inset-bottom));
+}
+
+.action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.action-info {
+  display: flex;
+  align-items: center;
+}
+
+.action-label {
+  font-size: 26rpx;
+  color: #999;
+  margin-right: var(--spacing-sm);
+}
+
+.action-price {
+  color: var(--gold-accent);
+}
+
+.btn-buy {
+  padding: 24rpx 64rpx;
+  font-size: 32rpx;
+}
+
+/* ==================== 页面样式 ==================== */
+.page {
+  min-height: 100vh;
+  background: var(--pink-light);
+  padding: var(--spacing-md);
+}

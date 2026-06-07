@@ -1,0 +1,181 @@
+<!-- 帅帅亲子乐园 - 订单确认页面 -->
+<view class="page">
+
+  <!-- 订单类型提示 -->
+  <view class="order-type-banner">
+    <text class="type-icon">{{orderType === 'buyTicket' ? '🎫' : '🎨'}}</text>
+    <text class="type-text">{{orderType === 'buyTicket' ? '购买门票' : '活动报名'}}</text>
+  </view>
+
+  <!-- 订单信息 -->
+  <view class="order-info">
+    <view class="card card-elevated">
+      <!-- 票务订单 -->
+      <block wx:if="{{orderType === 'buyTicket'}}">
+        <view class="info-header">
+          <view class="info-title">
+            <text class="title-main">{{ticketInfo.name}}</text>
+            <text class="title-sub">{{ticketInfo.description}}</text>
+          </view>
+         <view class="info-price">
+            <text class="price-symbol">¥</text>
+            <text class="price-value">{{ticketInfo.price}}</text>
+          </view>
+        </view>
+        <view class="divider"></view>
+        <view class="info-row">
+          <text class="row-label">游玩日期</text>
+          <text class="row-value">{{orderDate}}</text>
+        </view>
+        <view class="info-row">
+          <text class="row-label">购买数量</text>
+          <text class="row-value">{{quantity}}张</text>
+        </view>
+      </block>
+
+      <!-- 活动订单 -->
+      <block wx:if="{{orderType === 'activity'}}">
+        <view class="info-header">
+          <view class="info-title">
+            <text class="title-main">{{activityInfo.title}}</text>
+            <text class="title-sub">{{activityInfo.date}} {{activityInfo.time}}</text>
+          </view>
+        </view>
+        <view class="divider"></view>
+        <view class="info-row">
+          <text class="row-label">活动日期</text>
+          <text class="row-value">{{activityInfo.date}}</text>
+        </view>
+        <view class="info-row">
+          <text class="row-label">活动时间</text>
+          <text class="row-value">{{activityInfo.time}}</text>
+        </view>
+        <view class="info-row">
+          <text class="row-label">参与人数</text>
+          <text class="row-value">{{quantity}}人</text>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 优惠抵扣 -->
+  <view class="discount-section">
+    <view class="section-header flex-between">
+      <text class="section-title">优惠抵扣</text>
+    </view>
+    <view class="card card-elevated">
+      <view class="discount-item" bindtap="openCouponPicker">
+        <view class="discount-left">
+          <text class="discount-icon">🎫</text>
+          <text class="discount-label">优惠券</text>
+        </view>
+        <view class="discount-right">
+          <text class="discount-value {{selectedCoupon ? 'has-coupon' : ''}}">{{selectedCoupon ? '-' + selectedCoupon.value + '元' : '暂无可用'}}</text>
+          <text class="arrow">›</text>
+        </view>
+      </view>
+      <view class="divider"></view>
+      <view class="discount-item">
+        <view class="discount-left">
+          <text class="discount-icon">💰</text>
+          <text class="discount-label">积分抵扣</text>
+        </view>
+        <view class="discount-right">
+          <switch class="points-switch" checked="{{usePoints}}" bindchange="togglePoints" color="#D4A574"/>
+        </view>
+      </view>
+      <view class="points-tip" wx:if="{{usePoints}}">
+        <text>可用{{availablePoints}}积分抵扣¥{{pointsDiscount}}元</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 支付方式 -->
+  <view class="payment-section">
+    <view class="section-header">
+      <text class="section-title">支付方式</text>
+    </view>
+    <view class="card card-elevated">
+      <view class="payment-item {{paymentMethod === 'wechat' ? 'selected' : ''}}" bindtap="selectPayment" data-method="wechat">
+        <view class="payment-left">
+          <text class="payment-icon">💳</text>
+          <text class="payment-name">微信支付</text>
+        </view>
+        <view class="payment-check">
+          <view class="check-circle {{paymentMethod === 'wechat' ? 'checked' : ''}}">
+            <text wx:if="{{paymentMethod === 'wechat'}}">✓</text>
+          </view>
+        </view>
+      </view>
+      <view class="divider"></view>
+      <view class="payment-item {{paymentMethod === 'balance' ? 'selected' : ''}}" bindtap="selectPayment" data-method="balance">
+        <view class="payment-left">
+          <text class="payment-icon">💰</text>
+          <text class="payment-name">会员余额</text>
+          <text class="payment-balance">（余额：¥{{memberBalance}}）</text>
+        </view>
+        <view class="payment-check">
+          <view class="check-circle {{paymentMethod === 'balance' ? 'checked' : ''}}">
+            <text wx:if="{{paymentMethod === 'balance'}}">✓</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 订单金额 -->
+  <view class="amount-section">
+    <view class="card card-gold">
+      <view class="amount-row">
+        <text class="amount-label">商品金额</text>
+        <text class="amount-value">¥{{originalAmount}}</text>
+      </view>
+      <view class="amount-row" wx:if="{{couponDiscount > 0}}">
+        <text class="amount-label">优惠券</text>
+        <text class="amount-value discount">-¥{{couponDiscount}}</text>
+      </view>
+      <view class="amount-row" wx:if="{{pointsDiscount > 0}}">
+        <text class="amount-label">积分抵扣</text>
+        <text class="amount-value discount">-¥{{pointsDiscount}}</text>
+      </view>
+      <view class="divider divider-gold"></view>
+      <view class="amount-row amount-total">
+        <text class="amount-label">应付金额</text>
+        <view class="amount-price">
+          <text class="price-symbol">¥</text>
+          <text class="price-value text-xl">{{actualAmount}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 用户须知 -->
+  <view class="terms-section">
+    <view class="terms-item" bindtap="toggleTerms">
+      <view class="terms-check {{agreeTerms ? 'checked' : ''}}">
+        <text wx:if="{{agreeTerms}}">✓</text>
+      </view>
+      <text class="terms-text">我已阅读并同意<text class="link" bindtap="showTerms">《游玩须知》</text>和<text class="link" bindtap="showRefund">《退票规则》</text></text>
+    </view>
+  </view>
+
+  <!-- 底部支付按钮 -->
+  <view class="bottom-action">
+    <view class="action-bar">
+      <view class="action-info">
+        <text class="action-label">实付</text>
+        <view class="action-price">
+          <text class="price-symbol">¥</text>
+          <text class="price-value text-xl">{{actualAmount}}</text>
+        </view>
+      </view>
+      <view class="btn btn-primary btn-pay {{!agreeTerms ? 'disabled' : ''}}" bindtap="{{agreeTerms ? 'submitOrder' : ''}}">
+        <text>提交订单</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部安全区 -->
+  <view style="height: 180rpx;"></view>
+
+</view>

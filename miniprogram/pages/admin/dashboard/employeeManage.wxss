@@ -1,0 +1,168 @@
+/* 帅帅亲子乐园 - 员工管理弹窗样式 */
+
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  width: 90%;
+  max-height: 80vh;
+  background: var(--white-pure);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-lg);
+  background: var(--gold-light);
+}
+
+.modal-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--gray-text);
+}
+
+.close-btn {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.add-section {
+  padding: var(--spacing-lg);
+}
+
+.section-label {
+  display: block;
+  font-size: 26rpx;
+  font-weight: 500;
+  color: var(--gray-text);
+  margin-bottom: var(--spacing-sm);
+}
+
+.input-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.input {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 2rpx solid var(--gray-border);
+  border-radius: var(--radius-md);
+  font-size: 28rpx;
+  margin-bottom: var(--spacing-sm);
+  box-sizing: border-box;
+}
+
+.btn-sm {
+  padding: 16rpx 32rpx;
+  font-size: 26rpx;
+}
+
+.divider {
+  height: 1rpx;
+  background: var(--gray-border);
+}
+
+.list-section {
+  flex: 1;
+  padding: var(--spacing-lg);
+  overflow: hidden;
+}
+
+.employee-list {
+  max-height: 400rpx;
+}
+
+.employee-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  background: var(--pink-light);
+  margin-bottom: var(--spacing-sm);
+}
+
+.employee-item.boss {
+  background: var(--gold-light);
+}
+
+.employee-name {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: var(--gray-text);
+  margin-bottom: 4rpx;
+}
+
+.employee-id {
+  display: block;
+  font-size: 20rpx;
+  color: #999;
+  max-width: 300rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.employee-actions {
+  display: flex;
+  align-items: center;
+}
+
+.role-tag {
+  font-size: 22rpx;
+  padding: 4rpx 12rpx;
+  border-radius: var(--radius-full);
+  background: var(--gray-border);
+  color: #666;
+  margin-right: var(--spacing-sm);
+}
+
+.role-tag.boss {
+  background: var(--gold-accent);
+  color: var(--white-pure);
+}
+
+.delete-btn {
+  padding: 8rpx 16rpx;
+  border-radius: var(--radius-md);
+  background: var(--pink-main);
+}
+
+.delete-btn text {
+  font-size: 22rpx;
+  color: var(--white-pure);
+}
+
+.modal-footer {
+  padding: var(--spacing-lg);
+  border-top: 1rpx solid var(--gray-border);
+}
+
+.modal-footer .btn {
+  width: 100%;
+  justify-content: center;
+}

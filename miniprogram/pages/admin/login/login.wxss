@@ -1,0 +1,142 @@
+/* 帅帅亲子乐园 - 微信授权登录样式 */
+
+.page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--pink-light) 0%, var(--gold-light) 100%);
+  padding: var(--spacing-xxl) var(--spacing-md);
+}
+
+.login-container {
+  max-width: 600rpx;
+  margin: 0 auto;
+}
+
+/* Logo区域 */
+.logo-section {
+  text-align: center;
+  margin-bottom: var(--spacing-xxl);
+}
+
+.logo-circle {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-accent) 0%, #C49458 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--spacing-md);
+  box-shadow: var(--shadow-medium);
+}
+
+.logo-text {
+  font-size: 72rpx;
+  font-weight: 700;
+  color: var(--white-pure);
+}
+
+.brand-name {
+  display: block;
+  font-size: 40rpx;
+  font-weight: 700;
+  color: var(--gray-text);
+  margin-bottom: 8rpx;
+}
+
+.brand-subtitle {
+  display: block;
+  font-size: 28rpx;
+  color: var(--gold-accent);
+}
+
+/* 登录说明 */
+.intro-section {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.intro-text {
+  font-size: 28rpx;
+  color: #666;
+}
+
+/* 授权按钮 */
+.auth-section {
+  background: var(--white-pure);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-medium);
+}
+
+.wechat-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, #07C160 0%, #06AD56100%);
+  border-radius: var(--radius-lg);
+  border: none;
+  box-shadow: 0 4rpx 20rpx rgba(7, 193, 96, 0.3);
+}
+
+.wechat-btn::after {
+  border: none;
+}
+
+.wechat-icon {
+  font-size: 40rpx;
+  margin-right: var(--spacing-md);
+}
+
+.wechat-text {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--white-pure);
+}
+
+.auth-tips {
+  margin-top: var(--spacing-lg);
+  text-align: center;
+}
+
+.tip-text {
+  font-size: 22rpx;
+  color: #999;
+}
+
+/* 备用说明 */
+.backup-section {
+  margin-top: var(--spacing-xxl);
+  padding: var(--spacing-lg);
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-lg);
+}
+
+.backup-title {
+  display: block;
+  font-size: 26rpx;
+  font-weight: 600;
+  color: var(--gray-text);
+  margin-bottom: var(--spacing-sm);
+}
+
+.backup-text {
+  display: block;
+  font-size: 24rpx;
+  color: #999;
+  line-height: 1.8;
+}
+
+.get-openid-btn {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--pink-light);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.get-openid-btn text {
+  font-size: 26rpx;
+  color: var(--gold-accent);
+}

@@ -1,0 +1,77 @@
+<!-- 帅帅亲子乐园 - 活动预约页面 -->
+<view class="page">
+
+  <!-- 活动筛选 -->
+  <view class="filter-section">
+    <scroll-view class="filter-scroll" scroll-x>
+      <view class="filter-list">
+        <view class="filter-item {{filter === 'all' ? 'active' : ''}}" bindtap="setFilter" data-filter="all">
+          <text>全部</text>
+        </view>
+        <view class="filter-item {{filter === 'weekend' ? 'active' : ''}}" bindtap="setFilter" data-filter="weekend">
+          <text>周末活动</text>
+        </view>
+        <view class="filter-item {{filter === 'workshop' ? 'active' : ''}}" bindtap="setFilter" data-filter="workshop">
+          <text>手工坊</text>
+        </view>
+        <view class="filter-item {{filter === 'party' ? 'active' : ''}}" bindtap="setFilter" data-filter="party">
+          <text>生日派对</text>
+        </view>
+        <view class="filter-item {{filter === 'sports' ? 'active' : ''}}" bindtap="setFilter" data-filter="sports">
+          <text>运动会</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 活动列表 -->
+  <view class="activity-section">
+    <view class="activity-card" wx:for="{{filteredActivities}}" wx:key="id" bindtap="goToActivityDetail" data-activity="{{item}}">
+      <view class="activity-cover">
+        <view class="cover-bg" style="background: {{item.coverColor}};">
+          <text class="cover-icon">{{item.icon}}</text>
+        </view>
+        <view class="activity-status {{item.status === 'hot' ? 'hot' : ''}}">
+          <text wx:if="{{item.status === 'hot'}}">🔥 热门</text>
+          <text wx:elif="{{item.status === 'soon'}}">⏰ 即将开始</text>
+          <text wx:elif="{{item.status === 'full'}}">已约满</text>
+        </view>
+      </view>
+      <view class="activity-body">
+        <text class="activity-title">{{item.title}}</text>
+        <view class="activity-meta">
+          <view class="meta-item">
+            <text class="meta-icon">📅</text>
+            <text class="meta-text">{{item.date}}</text>
+          </view>
+          <view class="meta-item">
+            <text class="meta-icon">🕐</text>
+            <text class="meta-text">{{item.time}}</text>
+          </view>
+        </view>
+        <view class="activity-desc">{{item.description}}</view>
+        <view class="activity-footer">
+          <view class="activity-progress">
+            <view class="progress-bar">
+              <view class="progress-fill" style="width: {{(item.enrolled / item.spots) * 100}}%"></view>
+            </view>
+            <text class="progress-text">{{item.enrolled}}/{{item.spots}}人已报名</text>
+          </view>
+          <view class="activity-action">
+            <text class="action-btn {{item.status === 'full' ? 'disabled' : ''}}">{{item.status === 'full' ? '已满' : '立即报名'}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{filteredActivities.length === 0}}">
+    <text class="empty-icon">🎨</text>
+    <text class="empty-text">暂无相关活动</text>
+  </view>
+
+  <!-- 底部留白 -->
+  <view style="height: 120rpx;"></view>
+
+</view>

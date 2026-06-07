@@ -1,0 +1,13 @@
+node_modules/
+server/data/
+server/node_modules/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.pdf
+.DS_Store
+*.log
+.env
+dist/
+.cache/

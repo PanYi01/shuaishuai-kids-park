@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  @page { size: 90mm 50mm; margin: 0; }
+  @font-face { font-family: 'InstrumentBold'; src: url('/Users/panshuai/Library/Application Support/QClaw/openclaw/config/skills/canvas-design/canvas-fonts/InstrumentSans-Bold.ttf') format('truetype'); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    width: 90mm; height: 50mm;
+    background: linear-gradient(135deg, #FFF5F8, #FFE8F0);
+    font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  
+  /* Decorative background */
+  .dot-bg {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background-image: radial-gradient(circle, rgba(255,105,180,0.08) 1px, transparent 1px);
+    background-size: 4mm 4mm;
+  }
+  
+  .card {
+    position: relative; z-index: 10;
+    width: 82mm; height: 42mm;
+    background: white;
+    border: 0.4mm solid #FFD700;
+    border-radius: 3mm;
+    display: flex;
+    box-shadow: 0 0.5mm 2mm rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+  
+  .left {
+    width: 38mm; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    background: linear-gradient(180deg, #FFF5F8, white);
+    border-right: 0.3mm dashed #FFD700;
+    padding: 3mm;
+  }
+  
+  .left .brand {
+    font-size: 2.8mm; font-weight: 700; color: #E84D8A;
+    letter-spacing: 1mm; margin-bottom: 1mm;
+  }
+  
+  .left .big-price {
+    font-size: 9mm; font-weight: 900; color: #E84D8A;
+    font-family: 'InstrumentBold', sans-serif;
+    line-height: 1;
+  }
+  .left .big-price .small {
+    font-size: 3.5mm; font-weight: 400;
+  }
+  
+  .left .label {
+    font-size: 2.2mm; color: #999; margin-top: 0.5mm;
+  }
+  
+  .right {
+    flex: 1; display: flex; flex-direction: column;
+    justify-content: center; padding: 3mm 4mm;
+  }
+  
+  .right .title {
+    font-size: 2.8mm; font-weight: 700; color: #333;
+    margin-bottom: 1.5mm;
+  }
+  .right .info {
+    font-size: 2mm; color: #888; line-height: 1.5;
+  }
+  .right .valid {
+    font-size: 2mm; color: #E84D8A; font-weight: 700;
+    margin-top: 1.5mm;
+  }
+  
+  /* Tear-off perforation */
+  .perf {
+    position: absolute; right: 12mm; top: 0; bottom: 0;
+    width: 0.3mm; border-left: 0.3mm dashed #FFD700;
+  }
+  .stub {
+    position: absolute; right: 1.5mm; top: 50%; transform: translateY(-50%);
+    writing-mode: vertical-rl; font-size: 2mm; color: #ccc; letter-spacing: 1mm;
+  }
+</style>
+</head>
+<body>
+  <div class="dot-bg"></div>
+  <div class="card">
+    <div class="left">
+      <div class="brand">帅帅亲子乐园</div>
+      <div class="big-price">9<span class="small">.9</span></div>
+      <div class="label">元体验券</div>
+    </div>
+    <div class="right">
+      <div class="title">🎈 开业首周体验</div>
+      <div class="info">含1名儿童全天畅玩<br>成人免费陪同</div>
+      <div class="valid">有效期：7.5-7.11</div>
+    </div>
+    <div class="perf"></div>
+    <div class="stub">NO. 0001</div>
+  </div>
+</body>
+</html>
